@@ -1,0 +1,26 @@
+{
+    "name": "snow-star-color-scheme",
+    "displayName": "snow-star_color_scheme",
+    "description": "This is the syntax highlighter for the language Snow*.",
+    "version": "0.0.1",
+    "publisher": "Mesabloo",
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "snowstar",
+            "aliases": ["Snow*", "snowstar"],
+            "extensions": [".sssc"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "snowstar",
+            "scopeName": "source.snowstar",
+            "path": "./syntaxes/snowstar.tmLanguage.json"
+        }]
+    }
+}
