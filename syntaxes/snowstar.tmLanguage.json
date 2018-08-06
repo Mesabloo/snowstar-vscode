@@ -27,7 +27,7 @@
 				},
 				{
 					"name": "keyword.control.snowstar",
-					"match": "\\b(int|sys|back|jmp|call|add|sub|mul|div|mod|rand|push|pop|store|free|cmp|jwe|jwd|jwg|jwl)\\b"
+					"match": "\\b(int|sys|back|jmp|call|add|sub|mul|div|mod|rand|push|pop|store|free|cmp|jwe|jwd|jwg|jwl|addf|subf|mulf|divf|randf|and|or|xor|not|itos|ftos)\\b"
 				},
 				{
 					"name": "variable.other.constant.snowstar",
