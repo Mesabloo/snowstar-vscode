@@ -6,32 +6,19 @@
 		{ "include": "#strings" },
 		{ "include": "#numbers" },
 		{ "include": "#comments" },
-		{ "include": "#labels" },
 		{ "include": "#preprocessor" },
-		{ "include": "#punctuation" }
+		{ "include": "#annotations" }
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [
 				{
-					"name": "entity.label.snowstar",
-					"match": "(call|jmp|jwe|jwd|jwl|jwg)\\s+(\\w+)",
-					"captures": {
-						"1": {
-							"name": "keyword.control.snowstar"
-						},
-						"0": {
-							"name": "entity.name.function.preprocessor.snowstar"
-						}
-					}
+					"name": "support.type.property-name",
+					"match": "int8|int16|int32|int64|real32|real64|bool|char"
 				},
 				{
 					"name": "keyword.control.snowstar",
-					"match": "\\b(int|sys|back|jmp|call|add|sub|mul|div|mod|rand|push|pop|store|free|cmp|jwe|jwd|jwg|jwl|addf|subf|mulf|divf|randf|and|or|xor|not|itos|ftos)\\b"
-				},
-				{
-					"name": "variable.other.constant.snowstar",
-					"match": "\\b(param|mem|temp|nost)\\b"
+					"match": "\\b(unit)|(dtype)|(if)|(while)|(do)|(for)|(return)\\b"
 				}
 			]
 		},
@@ -47,6 +34,17 @@
 							"match": "\\\\."
 						}
 					]	
+				},
+				{
+					"name": "string.quoted.double.snowstar",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.snowstar",
+							"match": "\\\\."
+						}
+					]
 				}
 			]
 		},
@@ -65,18 +63,18 @@
 		"comments": {
 			"patterns": [
 				{
-					"name": "comment.line.percentage.snowstar",
-					"match": "%(.*)$"
+					"name": "comment.line.paragraph.snowstar",
+					"match": "§(.*)$"
 				},
 				{
 					"name": "comment.block.snowstar",
-					"begin": "#\\*",
+					"begin": "\\.:",
 					"beginCaptures": {
 						"0": {
 							"name": "punctuation.definition.comment.snowstar"
 						}
 					},
-					"end": "\\*#",
+					"end": ":\\.",
 					"endCaptures": {
 						"0": {
 							"name": "punctuation.definition.comment.snowstar"
@@ -85,39 +83,19 @@
 				}
 			]
 		},
-		"labels": {
+		"annotations": {
 			"patterns": [
-				{
-					"name": "entity.label.snowstar",
-					"match": "(\\w+)(\\:)",
-					"captures": {
-						"0": {
-							"name": "entity.name.function.preprocessor.snowstar"
-						},
-						"1": {
-							"name": "punctuation.separator.label.snowstar"
-						}
-					}
+				{	
+					"name": "support.type.snowstar",
+					"match": "(@([^\\s\\t\\n\\r])+)"
 				}
 			]
-		},
-		"punctuation": {
-			"patterns": [
-				{
-					"name": "punctuation.separator.colon.snowstar",
-					"match": ":"
-				},
-				{
-					"name": "punctuation.separator.element.snowstar",
-					"match": ","
-				}
-			]		
 		},
 		"preprocessor": {
 			"patterns": [
 				{
 					"name": "meta.preprocessor.snowstar",
-					"begin": "^\\s*(\\@\\@)\\s*",
+					"begin": "^\\s*(\\*\\*)\\s*",
 					"end": "(?<=$)"
 				}
 			]
